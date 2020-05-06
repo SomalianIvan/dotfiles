@@ -41,8 +41,8 @@ if has('persistent_undo')
 endif
 
 "EyeCandy
-colorscheme PaperColor
-set background=light
+colorscheme jellybeans
+set background=dark
 
 set noshowmode
 
@@ -69,7 +69,7 @@ let g:ale_javascript_eslint_use_global = 0
 let g:ale_javascript_eslint_executable = 'eslint_d'
 
 let g:lightline = {
-  \ 'colorscheme': 'PaperColor'
+  \ 'colorscheme': 'jellybeans'
 \}
 
 let g:lightline.component_function = {
@@ -126,8 +126,6 @@ endfunction
 
 set hidden
 
-" LeaderF config
-let g:Lf_WorkingDirectoryMode = "A"
 nnoremap <Leader>b :Buffers<cr>
 nnoremap <leader>f :GFiles<cr>
 
@@ -137,6 +135,8 @@ function! s:build_quickfix_list(lines)
   cc
 endfunction
 
+let g:fzf_history_dir = '~/.local/share/fzf-history'
+
 let g:fzf_action = {
   \ 'ctrl-q': function('s:build_quickfix_list'),
   \ 'ctrl-t': 'tab split',
@@ -144,4 +144,6 @@ let g:fzf_action = {
   \ 'ctrl-v': 'vsplit' }
 
 let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
+
+let test#strategy = "dispatch"
 

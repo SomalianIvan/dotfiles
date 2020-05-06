@@ -8,6 +8,7 @@
     pkgs.python
     pkgs.ruby
     pkgs.yarn
+    pkgs.exa
   ];
 
   programs.home-manager.enable = true;
@@ -35,7 +36,6 @@
         "autojump"
         "ruby"
       ];
-      theme = "steeef";
     };
 
     initExtra = ''
@@ -55,6 +55,8 @@
     vimAlias = true;
     extraConfig = builtins.readFile ./config.vim;
     plugins = with pkgs.vimPlugins; [
+      vim-dispatch
+      neomake
       vim-go
       tagbar
       vim-fugitive
@@ -64,11 +66,11 @@
       vim-markdown
       vim-sensible
       vim
+      vim-test
       vim-surround
       vim-pencil
       auto-pairs
       vim-polyglot
-      #vim-lexical
       gruvbox
       vim-rhubarb
       vim-jinja
@@ -84,7 +86,6 @@
       vim-javascript
       vim-startify
       nerdtree
-      neomake
       vim-indent-guides
       supertab
       fzf-vim
@@ -119,6 +120,11 @@
       [credential]
           helper = store --file /opt/dev/var/private/git_credential_store
     '';
+  };
+
+  programs.starship = {
+    enable = true;
+    enableZshIntegration = true;
   };
 
   home.stateVersion = "19.09";
