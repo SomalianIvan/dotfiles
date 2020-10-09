@@ -40,12 +40,6 @@ if has('persistent_undo')
 	set undofile
 endif
 
-"EyeCandy
-colorscheme jellybeans
-set background=dark
-
-set noshowmode
-
 "HARDCORE
 nnoremap <left> <nop>
 nnoremap <right> <nop>
@@ -63,13 +57,17 @@ nnoremap <tab> <nop>
 nnoremap <del> <nop>
 
 " neoformat
-noremap <C-l> :ALEFix eslint<CR>
+noremap <C-l> :ALEFix rubocop<CR>
 
 let g:ale_javascript_eslint_use_global = 0
 let g:ale_javascript_eslint_executable = 'eslint_d'
 
+let g:ale_linters = {
+	  \ 'go': ['gopls'],
+	  \}
+
 let g:lightline = {
-  \ 'colorscheme': 'jellybeans'
+  \ 'colorscheme': 'PaperColor'
 \}
 
 let g:lightline.component_function = {
@@ -147,3 +145,17 @@ let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
 
 let test#strategy = "dispatch"
 
+" Use deoplete.
+let g:deoplete#enable_at_startup = 1
+
+"EyeCandy
+set termguicolors
+colorscheme PaperColor
+set background=light
+
+set noshowmode
+
+"golang
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
+let g:go_bin_path=expand("$HOME/bin/")

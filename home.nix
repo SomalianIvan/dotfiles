@@ -24,7 +24,7 @@
       GIT_EDITOR = EDITOR;
 
       GOPATH = "$HOME";
-      PATH="$NIX_PATH:$PATH";
+      PATH="$NIX_PATH:$PATH:$GOPATH/bin";
     };
     # this is slow, kill this later
     oh-my-zsh = {
@@ -46,7 +46,13 @@
       if [ -f '/Users/terrpi/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/terrpi/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
       eval $(thefuck --alias)
+
+      function squash() { git reset $(git merge-base master $(git rev-parse --abbrev-ref HEAD)); }
     '';
+  };
+
+  programs.go = {
+    enable = true;
   };
 
   programs.neovim = {
@@ -85,9 +91,8 @@
       vim-repeat
       vim-javascript
       vim-startify
-      nerdtree
       vim-indent-guides
-      supertab
+      deoplete-nvim
       fzf-vim
       # themes
       papercolor-theme
@@ -96,6 +101,7 @@
   };
 
   programs.git = {
+    package = pkgs.gitAndTools.gitFull;
     extraConfig = ''
       [user]
           name = Timur Borkhodoev
