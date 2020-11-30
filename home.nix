@@ -40,14 +40,12 @@
 
     initExtra = ''
       [ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
-      if [ -f '/Users/terrpi/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/terrpi/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-      # The next line enables shell command completion for gcloud.
-      if [ -f '/Users/terrpi/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/terrpi/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
       eval $(thefuck --alias)
 
       function squash() { git reset $(git merge-base master $(git rev-parse --abbrev-ref HEAD)); }
+
+      alias ls="exa -l --icons"
     '';
   };
 
@@ -63,15 +61,15 @@
     plugins = with pkgs.vimPlugins; [
       vim-dispatch
       neomake
-      vim-go
       tagbar
       vim-fugitive
+      vim-ruby
+      vim-rails
       goyo
       nerdcommenter
       vim-unimpaired
       vim-markdown
       vim-sensible
-      vim
       vim-test
       vim-surround
       vim-pencil
@@ -94,6 +92,8 @@
       vim-indent-guides
       deoplete-nvim
       fzf-vim
+      vim-rooter
+      vimwiki
       # themes
       papercolor-theme
       jellybeans-vim
@@ -133,5 +133,43 @@
     enableZshIntegration = true;
   };
 
-  home.stateVersion = "19.09";
+  programs.alacritty = {
+    enable = true;
+    settings = {
+      font = {
+        size = 20;
+        normal = {
+          family = "ProggyCleanTT Nerd Font Mono";
+        };
+      };
+
+      colors = {
+        primary = {
+          background = "0x121212";
+          foreground = "0xdedede";
+        };
+
+        normal = {
+          black =   "0x929292";
+          red =     "0xe27373";
+          green =   "0x94b979";
+          yellow =  "0xffba7b";
+          blue =    "0x97bedc";
+          magenta = "0xe1c0fa";
+          cyan =    "0x00988e";
+          white =   "0xdedede";
+        };
+        bright = {
+          black =   "0xbdbdbd";
+          red =     "0xffa1a1";
+          green =   "0xbddeab";
+          yellow =  "0xffdca0";
+          blue =    "0xb1d8f6";
+          magenta = "0xfbdaff";
+          cyan =    "0x1ab2a8";
+          white =   "0xffffff";
+        };
+      };
+    };
+  };
 }

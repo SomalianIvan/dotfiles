@@ -67,7 +67,7 @@ let g:ale_linters = {
 	  \}
 
 let g:lightline = {
-  \ 'colorscheme': 'PaperColor'
+  \ 'colorscheme': 'jellybeans'
 \}
 
 let g:lightline.component_function = {
@@ -150,8 +150,8 @@ let g:deoplete#enable_at_startup = 1
 
 "EyeCandy
 set termguicolors
-colorscheme PaperColor
-set background=light
+colorscheme jellybeans
+set background=dark
 
 set noshowmode
 
