@@ -12,6 +12,9 @@
   ];
 
   programs.home-manager.enable = true;
+  programs.bat.enable = true;
+  programs.broot.enable = true;
+  programs.gpg.enable = true;
   programs.zsh = {
     enable = true;
     enableAutosuggestions = true;
@@ -24,7 +27,7 @@
       GIT_EDITOR = EDITOR;
 
       GOPATH = "$HOME";
-      PATH="$NIX_PATH:$PATH:$GOPATH/bin";
+      PATH="$HOME/bin:$NIX_PATH:$PATH";
     };
     # this is slow, kill this later
     oh-my-zsh = {
@@ -46,6 +49,8 @@
       function squash() { git reset $(git merge-base master $(git rev-parse --abbrev-ref HEAD)); }
 
       alias ls="exa -l --icons"
+
+      PATH="$HOME/bin:$NIX_PATH:$PATH";
     '';
   };
 
@@ -59,6 +64,7 @@
     vimAlias = true;
     extraConfig = builtins.readFile ./config.vim;
     plugins = with pkgs.vimPlugins; [
+      vim-go
       vim-dispatch
       neomake
       tagbar
@@ -74,7 +80,6 @@
       vim-surround
       vim-pencil
       auto-pairs
-      vim-polyglot
       gruvbox
       vim-rhubarb
       vim-jinja

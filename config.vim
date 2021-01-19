@@ -126,6 +126,7 @@ set hidden
 
 nnoremap <Leader>b :Buffers<cr>
 nnoremap <leader>f :GFiles<cr>
+nnoremap <leader>5 :TagbarToggle<cr>
 
 function! s:build_quickfix_list(lines)
   call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
@@ -159,3 +160,7 @@ set noshowmode
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 let g:go_bin_path=expand("$HOME/bin/")
+
+let g:gutentags_ctags_executable_ruby = 'ripper-tags'
+
+let g:polyglot_disabled = ['go']
