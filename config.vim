@@ -9,6 +9,46 @@ syntax enable
 
 "End dein Scripts-------------------------
 
+call plug#begin()
+    Plug 'fatih/vim-go'
+    Plug 'tpope/vim-dispatch'
+    Plug 'neomake/neomake'
+    Plug 'tpope/vim-fugitive'
+    Plug 'vim-ruby/vim-ruby'
+    Plug 'tpope/vim-rails'
+    Plug 'tpope/vim-commentary'
+    Plug 'tpope/vim-unimpaired'
+    Plug 'tpope/vim-sensible'
+    Plug 'vim-test/vim-test'
+    Plug 'vim-test/vim-test'
+    Plug 'tpope/vim-surround'
+    Plug 'preservim/vim-pencil'
+    Plug 'jiangmiao/auto-pairs'
+    Plug 'morhetz/gruvbox'
+    Plug 'tpope/vim-rhubarb'
+    Plug 'vim-scripts/taglist.vim'
+    Plug 'dense-analysis/ale'
+    Plug 'itchyny/lightline.vim'
+    Plug 'maximbaz/lightline-ale'
+    Plug 'sbdchd/neoformat'
+    Plug 'mhinz/vim-signify'
+    Plug 'ludovicchabant/vim-gutentags'
+    Plug 'tpope/vim-repeat'
+    Plug 'mhinz/vim-startify'
+    Plug 'nathanaelkane/vim-indent-guides'
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
+    Plug 'airblade/vim-rooter'
+    Plug 'NLKNguyen/papercolor-theme'
+    Plug 'nanotech/jellybeans.vim'
+    Plug 'github/copilot.vim'
+    Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+call plug#end()
+
+
 set nofoldenable
 set tabstop=4
 set shiftwidth=4
@@ -145,10 +185,6 @@ let g:fzf_action = {
 let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
 
 let test#strategy = "dispatch"
-
-" Use deoplete.
-let g:deoplete#enable_at_startup = 1
-
 "EyeCandy
 set termguicolors
 colorscheme jellybeans
@@ -164,3 +200,6 @@ let g:go_bin_path=expand("$HOME/bin/")
 let g:gutentags_ctags_executable_ruby = 'ripper-tags'
 
 let g:polyglot_disabled = ['go']
+
+nmap <silent> gm <Plug>(lcn-menu)
+nmap <silent> gd <Plug>(lcn-definition)
