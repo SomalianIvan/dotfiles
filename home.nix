@@ -37,7 +37,6 @@
         "git"
         "command-not-found"
         "autojump"
-        "ruby"
       ];
     };
 
