@@ -8,6 +8,7 @@ if ! command -v rg &> /dev/null; then
   sudo apt-get install -y silversearcher-ag
 fi
 
+mkdir -p ~/.config/nvim
 ln -sf ~/dotfiles/config.vim ~/.config/nvim/init.vim
 
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
