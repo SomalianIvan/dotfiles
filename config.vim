@@ -9,6 +9,13 @@ syntax enable
 
 "End dein Scripts-------------------------
 
+" Autoinstall plug
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin()
     Plug 'fatih/vim-go'
     Plug 'tpope/vim-dispatch'
@@ -42,10 +49,7 @@ call plug#begin()
     Plug 'NLKNguyen/papercolor-theme'
     Plug 'nanotech/jellybeans.vim'
     Plug 'github/copilot.vim'
-    Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
+    Plug 'vimwiki/vimwiki'
 call plug#end()
 
 
