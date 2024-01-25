@@ -1,15 +1,18 @@
 #!/bin/zsh
 
-sudo add-apt-repository ppa:neovim-ppa/unstable -y
-sudo apt-get update
-sudo apt-get install neovim -y
+sudo apt-get install -y silversearcher-ag ripgrep
 
-if ! command -v rg &> /dev/null; then
-  sudo apt-get install -y silversearcher-ag
-fi
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+chmod u+x nvim.appimage
+./nvim.appimage --appimage-extract
+./squashfs-root/AppRun --version
 
-mkdir -p ~/.config/nvim
-ln -sf ~/dotfiles/config.vim ~/.config/nvim/init.vim
+sudo mv squashfs-root /
+sudo rm /usr/local/bin/nvim
+sudo ln -s /squashfs-root/AppRun /usr/bin/nvim
+
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
@@ -17,3 +20,6 @@ cd
 git clone https://github.com/gpakosz/.tmux.git
 ln -s -f .tmux/.tmux.conf
 cp .tmux/.tmux.conf.local .
+
+# link
+ln -sf ~/dotfiles/config/nvim/ ~/.config/
