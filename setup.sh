@@ -22,4 +22,4 @@ ln -s -f .tmux/.tmux.conf
 cp .tmux/.tmux.conf.local .
 
 # link
-ln -sf /home/spin/dotfiles/nvim ~/.config/
+ln -sf ~/dotfiles/nvim ~/.config/
