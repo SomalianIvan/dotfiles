@@ -23,3 +23,4 @@ cp .tmux/.tmux.conf.local .
 
 # link
 ln -sf ~/dotfiles/nvim ~/.config/
+ln -sf ~/dotfiles/zshrc ~/.zshrc
