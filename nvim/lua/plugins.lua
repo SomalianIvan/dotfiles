@@ -137,6 +137,15 @@ return require('packer').startup(function(use)
     run = "make install_jsregexp",
   })
   use {
+    "nvim-neotest/neotest",
+    requires = {
+      "zidhuss/neotest-minitest",
+      "nvim-lua/plenary.nvim",
+      "antoinemadec/FixCursorHold.nvim",
+      "nvim-treesitter/nvim-treesitter"
+    }
+  }
+  use {
     'stevearc/oil.nvim',
     config = function() require('oil').setup() end
   }

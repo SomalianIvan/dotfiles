@@ -7,7 +7,10 @@ require("mason-lspconfig").setup({
     -- "solargraph",
     "lua_ls",
     -- "terraformls",
-    -- "tsserver",
+    "tsserver",
+    "ruby_ls",
+    "rust_analyzer",
+
     -- "vimls",
     -- "yamlls",
   },
@@ -51,6 +54,10 @@ require("lspconfig").lua_ls.setup {
   }
 }
 
+require("lspconfig").ruby_ls.setup {
+  capabilities = capabilities,
+}
+
 require("lspconfig").solargraph.setup {
   capabilities = capabilities,
 }
@@ -63,5 +70,8 @@ require("lspconfig").tsserver.setup {
   capabilities = capabilities,
 }
 require("lspconfig").svelte.setup {
+  capabilities = capabilities,
+}
+require("lspconfig").rust_analyzer.setup {
   capabilities = capabilities,
 }
