@@ -54,13 +54,9 @@ require("lspconfig").lua_ls.setup {
   }
 }
 
-require("lspconfig").ruby_ls.setup {
-  capabilities = capabilities,
-}
-
-require("lspconfig").solargraph.setup {
-  capabilities = capabilities,
-}
+-- require("lspconfig").ruby_ls.setup {
+--   capabilities = capabilities,
+-- }
 
 require("lspconfig").pyright.setup {
   capabilities = capabilities,
@@ -75,3 +71,6 @@ require("lspconfig").svelte.setup {
 require("lspconfig").rust_analyzer.setup {
   capabilities = capabilities,
 }
+require("lspconfig").sorbet.setup({
+  capabilities = capabilities,
+})
