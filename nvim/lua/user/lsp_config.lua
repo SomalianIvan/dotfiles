@@ -19,6 +19,9 @@ require("mason-lspconfig").setup({
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 require('lspsaga').setup({
+    ui = {
+      kind = require("catppuccin.groups.integrations.lsp_saga").custom_kind(),
+  },
   code_action_icon = "💡",
   symbol_in_winbar = {
     in_custom = false,

@@ -12,8 +12,8 @@ set smartcase
 set ignorecase
 set visualbell
 set termguicolors
-colorscheme kanagawa " catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
-set background=dark
+set background=light
+colorscheme catppuccin-latte " catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
 nmap ; :
 vmap ; :
 let mapleader=","
@@ -45,3 +45,4 @@ true)
 -- local everblush = require('everblush')
 -- everblush.setup({ nvim_tree = { contrast = true } }) -- or use contrast = false to not apply contrast
 
+require("ibl").setup()

@@ -159,4 +159,5 @@ return require('packer').startup(function(use)
   }
   use {'sotte/presenting.vim'}
   use {'mfussenegger/nvim-lint'}
+  use "lukas-reineke/indent-blankline.nvim"
 end)
